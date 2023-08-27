@@ -1,0 +1,30 @@
+package medicare_object;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import com.mysql.cj.jdbc.Driver;
+
+public class launch {
+
+	@Test
+	public void setUp() {
+		
+		System.setProperty("webdriver.chrome.driver", "/home/rushikeshkaples/Downloads/chromedriver");
+		WebDriver driver = new  ChromeDriver();
+		driver.manage().window().maximize();
+		
+		driver.get("http://localhost:8082/medicare/");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.findElement(By.id("login")).click();
+		
+	}
+	
+	
+}

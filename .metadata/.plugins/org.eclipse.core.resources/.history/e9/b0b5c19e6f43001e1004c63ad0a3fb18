@@ -1,0 +1,6 @@
+package flyaway;
+
+public class DashboardPage {
+	@FindBy(xpath="//a[@href='home']")
+	public static WebElement Home;
+}

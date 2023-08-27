@@ -1,0 +1,9 @@
+@Test
+	public void Flyawaya() {
+		String url = "http://localhost:8002/FlyAway/memberbookings";
+		RestAssured.baseURI= url;
+		
+		RequestSpecification requestSpecification = RestAssured.given();
+		Response response = requestSpecification.accept(ContentType.JSON).get();
+		System.out.println(response.asPrettyString());
+}

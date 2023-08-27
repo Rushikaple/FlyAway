@@ -1,0 +1,12 @@
+package medicare_object;
+
+import org.openqa.selenium.WebDriver;
+import medicare_object.adminloginobject;
+
+public class admintest {
+
+	WebDriver driver;
+	
+	PageFactory.initElements("driver,adminloginobject");
+	
+}

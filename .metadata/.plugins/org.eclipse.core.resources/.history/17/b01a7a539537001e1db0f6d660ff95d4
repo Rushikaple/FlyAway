@@ -1,0 +1,53 @@
+package medicare_object;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import org.testng.util.Strings;
+
+public class lanchPage {
+	 WebDriver driver;
+//	 String URL ="";
+	 
+	 adminloginobject loginPage = PageFactory.initElements(driver, adminloginobject.class);
+	 
+	
+	@BeforeMethod
+	public void lanchPage() {
+		System.setProperty("webdriver.chrome.driver", "/home/rushikeshkaples/Downloads/chromedriver");
+		
+			driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS)	;
+		driver.get("http://localhost:8082/medicare/");
+		driver.findElement(By.id("login")).click();		
+	}
+//	
+	@Test
+	public void loginVerify() throws InterruptedException {
+		Thread.sleep(2000);
+		String str = "adminloginobject.email.sendKeys('vk@gmail.com')";
+		System.out.println("str" + str);
+		
+		adminloginobject.password.sendKeys("admin");
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		adminloginobject.login.click();
+		Thread.sleep(3000);
+	}
+	
+//	@AfterMethod
+//	public void quit() {
+//		driver.close();
+//	}
+}

@@ -1,0 +1,66 @@
+package medicare_testcase;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+import medicare_object.adminloginobject;
+import medicare_object.editObject;
+
+public class Adminlogintestcase {
+	@Test
+	public void setUp() throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", "/home/rushikeshkaples/Downloads/chromedriver");
+		WebDriver driver = new  ChromeDriver();
+		driver.manage().window().maximize();
+		
+		driver.get("http://localhost:8082/medicare/");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.findElement(By.id("login")).click();
+		
+		
+		//Login Test
+		
+		PageFactory.initElements(driver, adminloginobject.class);
+		Thread.sleep(10000);
+		
+		adminloginobject.email.sendKeys("vk@gmail.com");
+		adminloginobject.password.sendKeys("admin");
+		Thread.sleep(10000);
+		adminloginobject.login.click();
+		
+		//Edit Object
+		
+		PageFactory.initElements(driver, editObject.class);
+		Thread.sleep(10000);
+		
+		editObject.ViewProd.click();
+		Thread.sleep(10000);
+		editObject.editbtn.click();
+		Thread.sleep(10000);
+		editObject.name.clear();
+		Thread.sleep(10000);
+		editObject.name.sendKeys("dolo");
+		Thread.sleep(10000);
+		editObject.Quantity.clear();
+		Thread.sleep(10000);
+		editObject.Quantity.sendKeys("75");
+		Thread.sleep(10000);
+		editObject.save.click();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+}
+}

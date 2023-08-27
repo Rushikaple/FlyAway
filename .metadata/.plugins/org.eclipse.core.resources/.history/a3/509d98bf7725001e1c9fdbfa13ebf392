@@ -1,0 +1,6 @@
+jdbc.driverClassName=com.mysql.jdbc.Driver
+jdbc.driverCLassName=com.mysql.cj.jdbc.Driver
+jdbc.dialect=org.hibernate.dialect.MySQLDialect
+jdbc.databaseurl=jdbc:mysql://localhost/flyway
+jdbc.username=rushikeshkaples
+jdbc.password=Rushi@123

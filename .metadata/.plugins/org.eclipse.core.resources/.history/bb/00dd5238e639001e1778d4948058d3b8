@@ -1,0 +1,134 @@
+package medicare_testcase;
+
+import java.time.Duration;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+import medicare_object.Addobject;
+import medicare_object.Enableobject;
+import medicare_object.adminloginobject;
+import medicare_object.editObject;
+
+public class Adminlogintestcase {
+	@Test
+	public void setUp() throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", "/home/rushikeshkaples/Downloads/chromedriver");
+		WebDriver driver = new  ChromeDriver();
+		driver.manage().window().maximize();
+		
+		driver.get("http://localhost:8082/medicare/");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.findElement(By.id("login")).click();
+		
+		
+		//Login Test
+		
+		PageFactory.initElements(driver, adminloginobject.class);
+		Thread.sleep(3000);
+		
+		adminloginobject.email.sendKeys("vk@gmail.com");
+		adminloginobject.password.sendKeys("admin");
+		Thread.sleep(3000);
+		adminloginobject.login.click();
+		
+		//Edit Object
+		
+		PageFactory.initElements(driver, editObject.class);
+		Thread.sleep(3000);
+		
+		editObject.ViewProd.click();
+		Thread.sleep(3000);
+		editObject.editbtn.click();
+		Thread.sleep(3000);
+		editObject.name.clear();
+		Thread.sleep(3000);
+		editObject.name.sendKeys("dolo");
+		Thread.sleep(3000);
+		editObject.Quantity.clear();
+		Thread.sleep(3000);
+		editObject.Quantity.sendKeys("75");
+		Thread.sleep(3000);
+		editObject.save.click();
+		
+		//Add credentials
+		PageFactory.initElements(driver, Addobject.class);
+		Thread.sleep(3000);
+		
+		Addobject.name.sendKeys("dolo");
+		Thread.sleep(3000);
+		Addobject.brand.sendKeys("cipla");
+		Thread.sleep(3000);
+		Addobject.desc.sendKeys("Used for high Fever");
+		Thread.sleep(3000);
+		Addobject.price.clear();
+		Thread.sleep(3000);
+		Addobject.price.sendKeys("5");
+		Thread.sleep(3000);
+		Addobject.quantity.clear();
+		Thread.sleep(3000);
+		Addobject.quantity.sendKeys("35");
+		Thread.sleep(3000);
+		Addobject.upload.sendKeys("/home/rushikeshkaples/Downloads/PRDABC123DEFX.jpg");
+		Thread.sleep(3000);
+		Addobject.category.sendKeys("Antibiotics");
+		Thread.sleep(3000);
+		Addobject.save.click();
+		
+		
+		//Disable and Enable 
+		PageFactory.initElements(driver, Enableobject.class);
+		Thread.sleep(3000);
+		
+//		Enableobject.AvailableProds.click();
+//		Thread.sleep(3000);
+		Enableobject.Disable.click();
+		Thread.sleep(3000);
+		Enableobject.Popup1.click();
+		Thread.sleep(3000);
+		Enableobject.Popup2.click();
+		Thread.sleep(3000);
+		Enableobject.Enable.click();
+		Thread.sleep(3000);
+		Enableobject.Popup3.click();
+		Thread.sleep(3000);
+		Enableobject.Popup4.click();
+		
+		
+		//log out
+		
+		Enableobject.DropDown.click();
+		Thread.sleep(3000);
+		Enableobject.Logout.click();
+		
+		
+		
+				
+}
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

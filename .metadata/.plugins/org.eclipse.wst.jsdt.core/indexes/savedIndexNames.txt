@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+/home/rushikeshkaples/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+3463606460.index
+401840032.index
+3234106403.index
+1607059779.index
+1640719010.index
+442502326.index

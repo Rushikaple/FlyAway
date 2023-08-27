@@ -1,0 +1,9 @@
+package medicare_object;
+
+public class lanchPage {
+
+	public void lauchpage() {
+		System.setProperty("webdriver.chromdriver.driver", "/home/rushikeshkaples/Downloads/chromedriver.exe");
+	
+	}
+}

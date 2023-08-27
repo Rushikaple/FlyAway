@@ -1,0 +1,6 @@
+server.port=9090
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.url=database-1.cjmoaqgfqbyl.us-east-1.rds.amazonaws.com/estoredb
+spring.datasource.username= rushikeshkaples
+spring.datasource.password= Rushi@123
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver

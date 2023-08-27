@@ -1,0 +1,22 @@
+package medicare_object;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Launch_Page {
+
+	private static final TimeUnit TimeUnit = null;
+
+	public void launchPage() {
+		System.setProperty("webdriver.chromdriver.driver", "/home/rushikeshkaples/Downloads/chromedriver.exe");
+		
+		 WebDriver driver = (WebDriver) new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("http://localhost:8082/medicare/");
+		driver.findElement(By.id("login")).click();
+		}
+}

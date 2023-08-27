@@ -1,0 +1,97 @@
+package registerobject;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class Registerpage {
+
+	@FindBy(xpath="/html/body/div/div[1]/div/div[2]/div/div/div[3]/div/a")
+		public static WebElement RegisterHere;
+	
+	@FindBy(id="firstName")
+		public static WebElement Name;
+	
+	@FindBy(id="lastName")
+		public static WebElement Last;
+	
+	@FindBy(id="email")
+		public static WebElement Email;
+	
+	@FindBy(id="contactNumber")
+		public static WebElement Number;
+	
+	@FindBy(id="password")
+		public static WebElement password;
+	
+	@FindBy (id="confirmPassword")
+		public static WebElement confPassword;
+	
+	@FindBy(xpath="//*[@id=\"registerForm\"]/div[7]/div/label[1]")
+		public static WebElement checkBtn;
+	
+	@FindBy(xpath= "//*[@id=\"registerForm\"]/div[8]/div/button")
+		public static WebElement NextBtn;
+	
+	// Address
+	
+	@FindBy(id="addressLineOne" )
+		public static WebElement OneLine;
+	
+	
+	@FindBy(id= "addressLineTwo")
+	public static WebElement TwoLine;
+	
+	@FindBy(id= "city")
+	public static WebElement city;
+	
+	@FindBy(id= "postalCode")
+	public static WebElement code;
+	
+	@FindBy(id= "state" )
+	public static WebElement state;
+	
+	@FindBy(id= "country" )
+	public static WebElement country;
+	
+	@FindBy(xpath ="//*[@id=\"billingForm\"]/div[7]/div/button[2]")
+	public static WebElement next;
+	
+	@FindBy()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,6 @@
+package flyaway;
+
+public class BookingPage {
+	@FindBy(xpath="//a[@href='completepurchase']")
+	public static WebElement bookaflight;
+}

@@ -1,0 +1,79 @@
+package register_testcase;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+import registerobject.Registerpage;
+
+public class RegisterTestpage {
+	@Test
+	public void setUp() throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", "/home/rushikeshkaples/Downloads/chromedriver");
+		WebDriver driver = new  ChromeDriver();
+		driver.manage().window().maximize();
+		
+		driver.get("http://localhost:8082/medicare/");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.findElement(By.id("login")).click();
+		
+		//RegisterPage
+		PageFactory.initElements(driver, Registerpage.class);
+		Thread.sleep(3000);
+		
+		Registerpage.RegisterHere.click();
+		Thread.sleep(3000);
+		Registerpage.Name.sendKeys("Rushikesh");
+		Thread.sleep(3000);
+		Registerpage.Last.sendKeys("Kaple");
+		Thread.sleep(3000);
+		Registerpage.Email.sendKeys("rushi123@gmail.com");
+		Thread.sleep(3000);
+		Registerpage.Number.sendKeys("9876543210");
+		Thread.sleep(3000);
+		Registerpage.password.sendKeys("Rushi@123");
+		Thread.sleep(3000);
+		Registerpage.confPassword.sendKeys("Rushi@123");
+		Thread.sleep(3000);
+		Registerpage.checkBtn.click();
+		Thread.sleep(3000);
+		Registerpage.NextBtn.click();
+		Thread.sleep(3000);
+		
+		//Address
+		Registerpage.OneLine.sendKeys("central mall ");
+		Thread.sleep(3000);
+		Registerpage.TwoLine.sendKeys("Amravati");
+		Thread.sleep(3000);
+		Registerpage.city.sendKeys("Amravati");
+		Thread.sleep(3000);
+		Registerpage.code.sendKeys("444705");
+		Thread.sleep(3000);
+		Registerpage.state.sendKeys("Maharashtra");
+		Thread.sleep(3000);
+		Registerpage.country.sendKeys("India");
+		Thread.sleep(3000);
+		Registerpage.next.click();
+		Thread.sleep(3000);
+		Registerpage.confirm.click();
+		Thread.sleep(3000);
+		
+		//login here
+		Registerpage.loginhere.click();
+		Thread.sleep(3000);
+		
+		//details
+		Registerpage.username.sendKeys("Rushikesh");
+		Thread.sleep(3000);
+		Registerpage.Password.sendKeys("Rushi@123");
+		Thread.sleep(3000);
+		Registerpage.btn.click();
+		Thread.sleep(3000);
+		
+}
+}

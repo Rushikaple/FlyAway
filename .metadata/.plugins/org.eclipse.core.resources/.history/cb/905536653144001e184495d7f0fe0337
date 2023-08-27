@@ -1,0 +1,10 @@
+#spring.jpa.hibernate.use-new-id-generator-mappings=false
+
+
+jdbc.url=jdbc:mysql://localhost/FlyAway?verifyServerCertificate=false&
+allowPublicKeyRetrieval=true&useSSL=false
+jdbc.driver=com.mysql.cj.jdbc.Driver
+jdbc.dialect=org.hibernate.dialect.MySQL5Dialect
+jdbc.username=rushikeshkaples
+jdbc.password=Rushi@123
+hibernate.generate_statistics = true

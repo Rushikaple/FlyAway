@@ -1,0 +1,23 @@
+package medicare_object;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import medicare_object.launch;
+
+public class adminloginobject {
+
+	@FindBy(id="username")
+	public static WebElement email;
+	
+	@FindBy(id="password")
+	public static WebElement password;
+	
+	@FindBy(xpath="//input[@type=\"submit\"]")
+	public static  WebElement login;
+	
+	
+	
+	
+	@email.sendKeys("vk@gmail.com");
+	
+}

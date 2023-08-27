@@ -1,0 +1,113 @@
+package userTestcase;
+
+import java.sql.Time;
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+import userObject.FilterObject;
+import userObject.LoginObject;
+import userObject.SearchObject;
+
+public class Usertest_case {
+	
+	@Test
+	public void usertestcase() throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", "/home/rushikeshkaples/Downloads/chromedriver");
+		WebDriver driver = new ChromeDriver();
+		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("http://localhost:8082/medicare/");
+		driver.findElement(By.id("login")).click();
+		
+		
+		//Login User
+		PageFactory.initElements(driver,LoginObject.class);
+		Thread.sleep(3000);
+		
+		LoginObject.email.sendKeys("rushi125@gmail.com");
+		Thread.sleep(3000);
+		LoginObject.password.sendKeys("admin");
+		Thread.sleep(3000);
+		LoginObject.login.click();
+		
+		//Search Medicine
+		PageFactory.initElements(driver, SearchObject.class);
+		Thread.sleep(3000);
+		
+		SearchObject.Viewprods.click();
+		Thread.sleep(3000);
+		SearchObject.search.sendKeys("Diclofenac");
+		Thread.sleep(3000);
+		SearchObject.search.clear();
+		
+		//Filter Page
+		PageFactory.initElements(driver, FilterObject.class);
+		Thread.sleep(3000);
+		
+		SearchObject.Viewprods.click();
+		Thread.sleep(3000);
+		
+		//Add to cart
+				PageFactory.initElements(driver,Addtocart.class);
+				Searchobject.ViewProducts.click();
+				Thread.sleep(3000);
+				Addtocart.All.sendKeys("ALL");
+				Thread.sleep(3000);
+				Addtocart.addtocart.click();
+				Thread.sleep(3000);
+				//Addtocart.Quantity.clear();
+				//Thread.sleep(3000);
+				//Addtocart.Quantity.sendKeys("20");
+				//Thread.sleep(3000);
+				Addtocart.checkout.click();
+				Thread.sleep(3000);
+				Addtocart.Addressline1.sendKeys("V.O,C Street");
+				Thread.sleep(3000);
+				Addtocart.Addressline2.sendKeys("ukkadam mainroad");
+				Thread.sleep(3000);
+				Addtocart.city.sendKeys("coimbatore");
+				Thread.sleep(3000);
+				Addtocart.postalcode.sendKeys("641042");
+				Thread.sleep(3000);
+				Addtocart.state.sendKeys("Tamilnadu");
+				Thread.sleep(3000);
+				Addtocart.country.sendKeys("India");
+				Thread.sleep(3000);
+				Addtocart.Add.click();
+				
+				
+				//Payment page 
+				PageFactory.initElements(driver,Paymentpage.class);
+				Thread.sleep(3000);
+				Paymentpage.cardno.sendKeys("1234567890");
+				Thread.sleep(3000);
+				Paymentpage.MM.sendKeys("12");
+				Thread.sleep(3000);
+				Paymentpage.YY.sendKeys("2027");
+				Thread.sleep(3000);
+				Paymentpage.CV.sendKeys("1145");
+				Thread.sleep(3000);
+				Paymentpage.Pay.click();
+				//logout
+				PageFactory.initElements(driver,Checkout.class);
+				Checkout.continueshopping.click();
+				Thread.sleep(3000);
+				Checkout.dropdown.click();
+				Thread.sleep(3000);
+				Checkout.Logout.click();
+				
+		
+		
+		
+		
+		
+	}
+}

@@ -1,0 +1,134 @@
+package userTestcase;
+
+import java.sql.Time;
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+import userObject.Addcart;
+import userObject.CheckOut;
+import userObject.FilterObject;
+import userObject.LoginObject;
+import userObject.Paymentpage;
+import userObject.SearchObject;
+
+public class Usertest_case {
+	
+	@Test
+	public void usertestcase() throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", "/home/rushikeshkaples/Downloads/chromedriver");
+		WebDriver driver = new ChromeDriver();
+		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("http://localhost:8082/medicare/");
+		driver.findElement(By.id("login")).click();
+		
+		
+		//Login User
+		PageFactory.initElements(driver,LoginObject.class);
+		Thread.sleep(3000);
+		
+		LoginObject.email.sendKeys("rushi125@gmail.com");
+		Thread.sleep(3000);
+		LoginObject.password.sendKeys("Rushi@123");
+		Thread.sleep(3000);
+		LoginObject.login.click();
+		
+		//Search Medicine
+		PageFactory.initElements(driver, SearchObject.class);
+		Thread.sleep(3000);
+		
+		SearchObject.Viewprods.click();
+		Thread.sleep(3000);
+		SearchObject.search.sendKeys("Diclofenac");
+		Thread.sleep(3000);
+		SearchObject.search.clear();
+		
+		//Filter Page
+		PageFactory.initElements(driver, FilterObject.class);
+		Thread.sleep(3000);
+		
+		SearchObject.Viewprods.click();
+		Thread.sleep(3000);
+		
+		FilterObject.Dropdown.click();
+		Thread.sleep(3000);
+		FilterObject.Dropdown.sendKeys("ALL");
+		Thread.sleep(3000);
+		SearchObject.Viewprods.click();
+		Thread.sleep(3000);
+		FilterObject.Dropdown.click();
+		Thread.sleep(3000);
+		FilterObject.Dropdown.sendKeys("3 Records");
+		
+		//AddToCart
+		PageFactory.initElements(driver, Addcart.class);
+		Thread.sleep(3000);
+		
+		SearchObject.Viewprods.click();
+		Thread.sleep(3000);
+		Addcart.All.sendKeys("ALL");
+		Thread.sleep(3000);
+		Addcart.addtocart.click();
+		Thread.sleep(3000);
+		Addcart.Quantity.clear();
+		Thread.sleep(3000);
+		Addcart.Quantity.sendKeys("20");
+		Thread.sleep(3000);
+		Addcart.checkout.click();
+		Thread.sleep(3000);
+		Addcart.Addressline1.sendKeys("Anjangaon surji");
+		Thread.sleep(3000);
+		Addcart.Addressline2.sendKeys("Akot Naka");
+		Thread.sleep(3000);
+		Addcart.city.sendKeys("Amravati");
+		Thread.sleep(3000);
+		Addcart.postalcode.sendKeys("444705");
+		Thread.sleep(3000);
+		Addcart.state.sendKeys("Maharashtra");
+		Thread.sleep(3000);
+		Addcart.country.sendKeys("India");
+		Thread.sleep(3000);
+		Addcart.Add.click();
+		
+		
+		//Payment page
+		PageFactory.initElements(driver, Paymentpage.class);
+		Thread.sleep(3000);
+		
+		Paymentpage.cardnum.sendKeys("1234567890");
+		Thread.sleep(3000);
+		Paymentpage.MM.sendKeys("12");
+		Thread.sleep(3000);
+		Paymentpage.YY.sendKeys("2027");
+		Thread.sleep(3000);
+		Paymentpage.CV.sendKeys("123");
+		Thread.sleep(3000);
+		Paymentpage.Pay.click();
+		
+		//logout
+		PageFactory.initElements(driver, CheckOut.class);
+		Thread.sleep(3000);
+		CheckOut.continueshopping.click();
+		Thread.sleep(3000);
+		CheckOut.dropdown.click();
+		Thread.sleep(3000);
+		CheckOut.Logout.click();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}
